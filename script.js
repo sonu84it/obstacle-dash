@@ -47,13 +47,18 @@ function reset() {
 }
 
 function spawnObstacle() {
+    const type = Math.random() < 0.5 ? 'slide' : 'ground';
     const el = document.createElement('div');
     el.classList.add('obstacle');
+    if (type === 'slide') {
+        el.classList.add('slide');
+    }
     gameArea.appendChild(el);
     const obs = {
         x: gameArea.clientWidth,
+        type,
         width: 40,
-        height: 60,
+        height: type === 'slide' ? 20 : 60,
         el
     };
     obstacles.push(obs);
