@@ -5,6 +5,7 @@ const overlay = document.getElementById('overlay');
 const retryBtn = document.getElementById('retry');
 const speedEl = document.getElementById('speed');
 
+
 let player = {
     x: 30,
     y: 0,
