@@ -43,12 +43,6 @@ body {
     background: #588b8b;
 }
 
-.obstacle.top {
-    bottom: auto;
-    top: 0;
-    height: 60px;
-}
-
 #score {
     position: absolute;
     top: 10px;
@@ -57,6 +51,15 @@ body {
     font-size: 20px;
     z-index: 2;
 }
+
+#speed {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    font-size: 20px;
+    z-index: 2;
+    font-family: monospace;
 
 #overlay {
     position: absolute;

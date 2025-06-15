@@ -3,6 +3,8 @@ const playerEl = document.getElementById('player');
 const scoreEl = document.getElementById('score');
 const overlay = document.getElementById('overlay');
 const retryBtn = document.getElementById('retry');
+const speedEl = document.getElementById('speed');
+
 
 let player = {
     x: 30,
@@ -39,18 +41,17 @@ function reset() {
     lastTime = null;
     gameOver = false;
     overlay.classList.add('hidden');
+    overlay.style.display = 'none';
+    speedEl.textContent = 'Speed: ' + speed;
     requestAnimationFrame(loop);
 }
 
 function spawnObstacle() {
-    const type = Math.random() < 0.5 ? 'bottom' : 'top';
     const el = document.createElement('div');
     el.classList.add('obstacle');
-    if (type === 'top') el.classList.add('top');
     gameArea.appendChild(el);
     const obs = {
         x: gameArea.clientWidth,
-        type,
         width: 40,
         height: 60,
         el
@@ -115,6 +116,7 @@ function loop(timestamp) {
     if (speedTimer > 15000) {
         speed += 1;
         speedTimer = 0;
+        speedEl.textContent = 'Speed: ' + speed;
     }
 
     updatePlayer(dt);
@@ -126,6 +128,7 @@ function loop(timestamp) {
     if (checkCollision()) {
         gameOver = true;
         overlay.classList.remove('hidden');
+        overlay.style.display = 'flex';
         return;
     }
 
