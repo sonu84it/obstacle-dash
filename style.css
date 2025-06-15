@@ -43,6 +43,11 @@ body {
     background: #588b8b;
 }
 
+.obstacle.slide {
+    bottom: 60px;
+    height: 20px;
+}
+
 #score {
     position: absolute;
     top: 10px;
